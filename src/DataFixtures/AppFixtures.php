@@ -9,8 +9,8 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $data=["google","facebook","instagram"];
-
+        // $product = new Product();
+        // $manager->persist($product);
 
         $manager->flush();
     }

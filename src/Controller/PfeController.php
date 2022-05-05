@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Entreprise;
 use App\Entity\PFE;
 use App\Form\PfeType;
 //use http\Env\Request;
@@ -34,7 +35,7 @@ class PfeController extends AbstractController
 
     #[Route('/pfe/affichage' , name :'affichage_app')]
     public function  addichage(ManagerRegistry $doctrine): Response{
-        $manager=$doctrine->getRepository(PFE::class);
+        $manager=$doctrine->getRepository(Entreprise::class);
         $demandes=$manager->findAll();
         return $this->render('affichage.html.twig' , ['demandes'=>$demandes]);
     }
