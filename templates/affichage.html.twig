@@ -1,0 +1,18 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}
+PFE LISTE
+{% endblock %}
+
+{% block body %}
+    {% for demande in demandes %}
+    <div class ="card tsxte-white bg-primary mb-3" style="max-width: 18rem">
+        <div class="card-header">Nombre de pfe par l'entreprise</div>
+            <div class ="card-body">
+                <h5 class="card-title">{{demande.entreprise }}</h5>
+                    <p class=" card-text"> {{ demande.pfe.count()}}  {{ demande.student }}pfe(s)</p>
+            </div>
+    </div>
+{% endfor %}
+{% endblock %}
+
