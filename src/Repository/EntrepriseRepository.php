@@ -75,4 +75,12 @@ class EntrepriseRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function comptage(){
+        return $this->createQueryBuilder("e")
+            ->from("App:PFE","pfe")
+            ->where(" pfe.entreprise=e.id")
+            ->groupBy("e.id")
+            ->getQuery()
+            ->getResult();
+    }
 }

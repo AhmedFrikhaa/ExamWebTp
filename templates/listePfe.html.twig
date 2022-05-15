@@ -1,0 +1,22 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}
+Liste PFE
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+{% for demande in pfe %}
+
+    <div class ="card tsxte-white bg-secondary mb-3 m-2" style="max-width: 18rem" >
+            <div class ="card-body">
+                <h5 class="card-title">{{demande.title }}</h5>
+                    <p class=" card-text"> {{ demande.student}} </p>
+                    <p class=" card-text"> {{ demande.entreprise}} </p>
+            </div>
+    </div>
+
+{% endfor %}
+    </div>
+{% endblock %}
+

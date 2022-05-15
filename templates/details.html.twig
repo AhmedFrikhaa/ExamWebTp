@@ -1,0 +1,18 @@
+{% extends "template.html.twig" %}
+{% block title %}
+Welcome
+{% endblock %}
+{% block body %}
+<h1>
+    Welcome to your personal account
+</h1>
+    <div class ="card tsxte-white bg-primary mb-3" style="max-width: 18rem">
+        <div class="card-header">some infos about this account</div>
+        <div class ="card-body">
+            <h5 class="card-title">{{pfe.student }}</h5>
+            <p class=" card-text"> {{ pfe.title }} </p>
+            <p class=" card-text"> {{ pfe.entreprise }} </p>
+
+        </div>
+    </div>
+{% endblock %}

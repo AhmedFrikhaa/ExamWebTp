@@ -26,7 +26,7 @@ class PfeController extends AbstractController
             $manager->persist($pfe);
             $manager->flush();
             $this->addFlash("info", "this pfe is added !");
-            return  $this->redirectToRoute('affichage_app');
+            return  $this->render('details.html.twig',['pfe'=>$pfe]);
         }
 
         return $this->render('pfe/index.html.twig', [ 'form'=>$form->createView()
@@ -36,7 +36,18 @@ class PfeController extends AbstractController
     #[Route('/pfe/affichage' , name :'affichage_app')]
     public function  addichage(ManagerRegistry $doctrine): Response{
         $manager=$doctrine->getRepository(Entreprise::class);
-        $demandes=$manager->findAll();
+        $demandes=$manager->comptage();
         return $this->render('affichage.html.twig' , ['demandes'=>$demandes]);
     }
-}
+    #[Route('/listePfe' , name: 'liste')]
+    public function listePfe(ManagerRegistry $doctrine): Response {
+        $manger=$doctrine->getRepository(PFE::class);
+        $pfe=$manger->findAll();
+        return $this->render('listePfe.html.twig', ['pfe'=>$pfe]);
+    }
+    #[Route('/welcome' , name:'welcome')]
+    public function welcome(): Response{
+        return $this->render('welcome.html.twig');
+    }
+
+ }

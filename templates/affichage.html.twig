@@ -5,8 +5,14 @@ PFE LISTE
 {% endblock %}
 
 {% block body %}
+    <div class="row">
     {% for demande in demandes %}
-    <div class ="card tsxte-white bg-primary mb-3" style="max-width: 18rem">
+        {% if demande.id%2==0 %}
+        {% set background_color="bg-primary" %}
+        {% else  %}
+        {% set background_color="bg-secondary"%}
+        {% endif %}
+    <div class ="card tsxte-white {{ background_color }} mb-3 m-2" style="max-width: 18rem">
         <div class="card-header">Nombre de pfe par l'entreprise</div>
             <div class ="card-body">
                 <h5 class="card-title">{{demande.name }}</h5>
@@ -14,5 +20,7 @@ PFE LISTE
             </div>
     </div>
 {% endfor %}
+
+    </div>
 {% endblock %}
 
